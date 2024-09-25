@@ -1,6 +1,6 @@
 """My first exercise in COMP110!"""
 
-_author_ = "730749520"
+__author__ = "730749520"
 
 
 def greet(name: str) -> str:
