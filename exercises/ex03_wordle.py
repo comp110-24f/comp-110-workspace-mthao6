@@ -14,7 +14,7 @@ def main(secret: str) -> None:
 
         guess = input_guess(len(secret))
 
-        print(emojified(guess, secret)) # Will display the results with emojis
+        print(emojified(guess, secret))# Will display the results with emojis
 
         if guess == secret: # Checks to see if the guess is correct 
             won = True
@@ -24,10 +24,10 @@ def main(secret: str) -> None:
 
 def input_guess(secret_word_len: int) -> str: 
     guess = "" # Initialize an empty guess to start loop
-    while len(guess)!= secret_word_len: # Continue asking for input until user has given the correct length
-        guess = input(f"Enter a {secret_word_len}- character word:") # Ask for an input of a word of the required length
+    while len(guess) != secret_word_len: # Continue asking for input until user has given the correct length
+        guess = input(f"Enter a {secret_word_len} character word: ") # Ask for an input of a word of the required length
         if len(guess) != secret_word_len: # If length is incorrect print and ask again
-            print(f"That wasn't {secret_word_len} chars! Try again!:")
+            print(f"That wasn't {secret_word_len} chars! Try again: ")
     return guess # Once it is the correct length return wanted guess
 
 
@@ -42,7 +42,7 @@ def contains_char(secret_word: str, char_guess: str) -> bool:
         i += 1 # Move to the next character in the index
     return False 
 
-def emojified(guess, secret):
+def emojified(guess: str, secret: str) -> str:
     assert len(guess) == len(secret)
 
     WHITE_BOX: str = "\U00002B1C" # Letter is not included in secret
