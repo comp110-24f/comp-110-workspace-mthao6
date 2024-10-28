@@ -12,7 +12,7 @@ def invert(input_dict: dict[str,str]) -> dict[str, str]:
     return inverted_dict 
 
 def favorite_color(favorites: dict[str, str]) -> str: # Dict to store color counts
-    color_count = {}
+    color_count : dict[str, int] = {}
     for color in favorites.values():
         if color in color_count: # Count each color occurence
             color_count[color] += 1
@@ -31,7 +31,7 @@ def favorite_color(favorites: dict[str, str]) -> str: # Dict to store color coun
     return favorite_color 
 
 def count(values: list[str]) -> dict[str, int]:
-    result = {} # Int an empty dict to store the counts 
+    result : dict[str, int] = {} # Int an empty dict to store the counts 
 
     for item in values: # Loop thru each item in input list
         if item in result: 
@@ -44,19 +44,17 @@ def count(values: list[str]) -> dict[str, int]:
 
 def alphabetizer(words: list[str]) -> dict[str, list[str]]:
     """Categorize words into dic based on starting letters"""
-    result = {}
+    result: dict[str,list[str]] = {}
 
     for word in words: 
         first_letter = word[0]. lower() # Convert first letter to lowercase
-         
         if first_letter not in result: 
             result[first_letter] = [] # Create a new list for this letter
-
-            result[first_letter].append(word) # Append word to the corresponding list
+        result[first_letter].append(word) # Append word to the corresponding list
     return result 
 
 def update_attendance(attendance: dict[str, list[str]], day: str, student: str) -> None:
         if day not in attendance: # Checks if day exists in the dic
             attendance[day] = []
-
-        attendance[day].append(student) # Adds the student to the attendance list for the day
+        if student not in attendance[day]:
+            attendance[day].append(student) # Adds the student to the attendance list for the day
